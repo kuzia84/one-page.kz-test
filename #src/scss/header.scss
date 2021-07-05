@@ -1,0 +1,100 @@
+.header {
+    border-bottom: 1px solid #d9d9d9;
+    padding: 26px 0 22px;
+}
+.nav-header {
+    // .nav-header__button
+    &__button {
+        display: none;
+        border: 1px solid #d9d9d9;
+        border-radius: 4px;
+        padding: 12px 6px;
+        background-color: #fff;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        @media (max-width: 992px) {
+            display: inline-flex;
+        }
+        &.active {
+            .nav-header__button--icon {
+                background-color: transparent;
+                &::before {
+                    transform: rotate(45deg);
+                    top: 0;
+                }
+                &::after {
+                    transform: rotate(-45deg);
+                    bottom: 0;
+                }
+            }
+        }
+    }
+    // .nav-header__button--icon
+    &__button--icon {
+        position: relative;
+        display: block;
+        width: 14px;
+        height: 2px;
+        background-color: #e7e7e7;
+        &::before,
+        &::after {
+            position: absolute;
+            content: "";
+            width: 14px;
+            height: 2px;
+            background-color: #e7e7e7;
+            left: 0;
+            transition: 0.3s ease-in-out;
+        }
+        &::before {
+            top: -6px;
+        }
+        &::after {
+            bottom: -6px;
+        }
+    }
+    // .nav-header__nav-container
+    &__nav-container {
+        @media (max-width: 992px) {
+            display: none;
+            &.show {
+                display: block;
+            }
+        }
+    }
+}
+
+.nav-list {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    // .nav-list__item
+    &__item {
+        margin: 0 30px;
+        @media (max-width: 992px) {
+            margin: 0 8px;
+            flex: 1 1 100%;
+        }
+    }
+    // .nav-list__link
+    &__link {
+        color: var(--blue);
+        font-size: 14px;
+        font-weight: 300;
+        text-decoration: none;
+        padding: 8px;
+        display: block;
+        @media (max-width: 992px) {
+            text-align: center;
+        }
+        &:hover {
+            color: #1c1c1c;
+        }
+        &.active {
+            color: #1c1c1c;
+        }
+    }
+}
