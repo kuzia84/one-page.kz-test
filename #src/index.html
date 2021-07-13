@@ -30,8 +30,9 @@
                     </div>
                     <div class="personal-info__form info-form">
                         <div class="info-form__item">
-                            <input type="text" name="user-name" class="info-form__input" placeholder="ФИО"
-                                value="Чумаченко Василий Васильевич">
+                            <input type="text" name="user-name" class="info-form__input"
+                                value="Чумаченко Василий Васильевич" id="user-name-input" placeholder=" ">
+                            <label for="user-name-input" class="info-form__label">ФИО</label>
                         </div>
                         <div class="info-form__item">
                             <div class="info-form__select custom-select">
@@ -56,16 +57,19 @@
                             </div>
                         </div>
                         <div class="info-form__item">
-                            <input type="text" name="user-city" class="info-form__input" placeholder="Место проживания"
-                                value="Тирасполь">
+                            <input type="text" name="user-city" class="info-form__input" value="Тирасполь"
+                                id="user-city-input" placeholder=" ">
+                            <label for="user-city-input" class="info-form__label">Место проживания</label>
                         </div>
                         <div class="info-form__item">
-                            <input type="text" name="user-skype" class="info-form__input" placeholder="Skype"
-                                value="kuzia_84">
+                            <input type="text" name="user-skype" class="info-form__input" value="kuzia_84"
+                                id="user-skype-input" placeholder=" ">
+                            <label for="user-skype-input" class="info-form__label">Skype</label>
                         </div>
                         <div class="info-form__item">
-                            <input type="email" name="user-email" class="info-form__input" placeholder="E-mail"
-                                value="kuzia84@gmail.com">
+                            <input type="email" name="user-email" class="info-form__input" value="kuzia84@gmail.com"
+                                id="user-email-input" placeholder=" ">
+                            <label for="user-email-input" class="info-form__label">E-mail</label>
                         </div>
                     </div>
                 </div>
@@ -204,12 +208,12 @@
                             </div>
                             <div class="js-exp__description description-js">
                                 <ul class="description-js__list">
-                                    <li class="description-js__item">Не владею</li>
-                                    <li class="description-js__item">Использую готовые <br> решения</li>
-                                    <li class="description-js__item">
+                                    <li class="description-js__item" data-skill="1">Не владею</li>
+                                    <li class="description-js__item" data-skill="2">Использую готовые <br> решения</li>
+                                    <li class="description-js__item" data-skill="3">
                                         Использую готовые решения <br> и умею их переделывать
                                     </li>
-                                    <li class="description-js__item">Пишу сложный JS с нуля</li>
+                                    <li class="description-js__item" data-skill="4">Пишу сложный JS с нуля</li>
                                 </ul>
                             </div>
                         </div>

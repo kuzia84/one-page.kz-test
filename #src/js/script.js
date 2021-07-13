@@ -1,4 +1,4 @@
-@@include("ion.rangeSlider.min.js")
+@@include("ion.rangeSlider.js")
 
 function testWebP(callback) {
   var webP = new Image();
@@ -23,8 +23,23 @@ $(".js-range-slider").ionRangeSlider({
   hide_min_max: true,
   hide_from_to: true,
   min: 0,
-  max: 100,
-  from: 50  
+  max: 4,
+  from: 2  
+});
+let my_range = $(".js-range-slider").data("ionRangeSlider");
+const skillLinks = document.querySelectorAll(".description-js__item[data-skill]");
+const skillLevels = {
+   1: 0,
+   2: 1,
+   3: 2,
+   4: 4
+};
+skillLinks.forEach(element => {
+  element.addEventListener('click', function () {
+    my_range.update({
+      from: skillLevels[element.dataset.skill]
+  });
+  })
 });
 
 /* Custom select */

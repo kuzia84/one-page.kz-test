@@ -109,6 +109,19 @@ a {
   // .info-form__item
   &__item {
     margin-bottom: 25px;
+    position: relative;
+  }
+  // .info-form__label
+  &__label {
+    position: absolute;
+    font-size: 24px;
+    color: #c8c8c8;
+    width: 100%;
+    text-align: center;
+    line-height: 60px;
+    top: 0;
+    left: 0;
+    transition: 0.3s ease-in-out;
   }
   // .info-form__input
   &__input {
@@ -117,23 +130,28 @@ a {
     border: 1px solid #e7e7e7;
     border-radius: 4px;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
+    line-height: 1;
+    color: #1c1c1c;
     font-family: "Roboto", sans-serif;
-    &::placeholder {
-      /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: #c8c8c8;
-      opacity: 1; /* Firefox */
+    padding-top: 6px;
+    transition: 0.3s ease-in-out;
+    &:focus {
+      border-color: #435993;
+      outline: none;
     }
-
-    &:-ms-input-placeholder {
-      /* Internet Explorer 10-11 */
-      color: #c8c8c8;
-    }
-
-    &::-ms-input-placeholder {
-      /* Microsoft Edge */
-      color: #c8c8c8;
-    }
+  }
+  .info-form__input:placeholder-shown + .info-form__label {
+    font-size: 24px;
+    line-height: 60px;
+  }
+  .info-form__input:focus + .info-form__label {
+    font-size: 14px;
+    line-height: 28px;
+  }
+  .info-form__input:not(:placeholder-shown) + .info-form__label {
+    font-size: 14px;
+    line-height: 28px;
   }
   &__select {
     max-width: 320px;
@@ -244,13 +262,31 @@ a {
 }
 .exp-form {
   // .exp-form__list
+  @media (min-width: 850px) {
+    width: calc(100% + 70px);
+    padding-right: 35px;
+    padding-left: 35px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-right: -35px;
+    margin-left: -35px;
+  }
   &__list {
     display: flex;
     flex-wrap: wrap;
+    @media (min-width: 850px) {
+      margin-right: -35px;
+      margin-left: -35px;
+    }
   }
   // .exp-form__item
   &__item {
     flex: 0 0 33.333333333%;
+    @media (min-width: 850px) {
+      max-width: 33.333333333%;
+      padding-right: 35px;
+      padding-left: 35px;
+    }
     @media (max-width: 568px) {
       flex: 0 0 50%;
     }
@@ -310,11 +346,27 @@ a {
   // .js-exp__description
   &__description {
     margin-top: 45px;
+    z-index: 10;
+    position: relative;
+    @media (max-width: 768px) {
+      padding-left: 4px;
+      padding-right: 4px;
+    }
   }
   // .js-exp__range
   &__range {
     position: relative;
     margin-top: -12px;
+    margin-right: -11px;
+    margin-left: -11px;
+    padding-right: 11px;
+    padding-left: 11px;
+    @media (max-width: 768px) {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 4px;
+      padding-right: 4px;
+    }
     &::before {
       content: "";
       position: absolute;
@@ -346,13 +398,22 @@ a {
     }
     .irs--modern .irs-handle {
       top: 29px;
-      width: 23px;
+      width: 1px;
       height: 26px;
       border: none;
       box-shadow: none;
       position: relative;
       background: url("../img/range.png") center / cover no-repeat;
-
+      cursor: pointer;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 26px;
+        width: 23px;
+        background: url("../img/range.png") center / cover no-repeat;
+      }
       i {
         display: none;
       }
@@ -367,13 +428,16 @@ a {
   }
   // .description-js__item
   &__item {
-    flex: 0 0 25%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 25%;
     font-size: 13px;
     line-height: 19px;
     color: #2e211c;
     display: flex;
     align-items: flex-end;
     position: relative;
+    cursor: pointer;
     @media (max-width: 414px) {
       font-size: 10px;
       line-height: 1.4;
@@ -388,7 +452,12 @@ a {
       border-left: 1px dotted #b3b3b3;
       z-index: 10;
     }
+    &:nth-child(1) {
+      flex-basis: 25.0322%;
+    }
     &:nth-child(2) {
+      flex-basis: 24.9678%;
+
       &::before {
         height: 16px;
       }
@@ -424,6 +493,7 @@ a {
     }
     &:last-child {
       justify-content: flex-end;
+      text-align: right;
     }
   }
 }
