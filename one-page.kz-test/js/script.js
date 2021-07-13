@@ -2487,7 +2487,7 @@ skillLinks.forEach(element => {
   element.addEventListener('click', function () {
     my_range.update({
       from: skillLevels[element.dataset.skill]
-  });
+    });
   })
 });
 
@@ -2612,10 +2612,10 @@ if (navLinks.length) {
     const navLink = e.target;
     if(navLink.dataset.goto && document.querySelector(navLink.dataset.goto)) {
       const gotoBlock = document.querySelector(navLink.dataset.goto);
-      const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset;
+      const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - 77;
       window.scrollTo({
         top: gotoBlockValue,
-        behavior: "smooth",
+        behavior: "auto",
       });
       e.preventDefault();
     }
