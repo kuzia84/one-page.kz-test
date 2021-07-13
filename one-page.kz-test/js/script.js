@@ -2615,7 +2615,7 @@ if (navLinks.length) {
       const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - 77;
       window.scrollTo({
         top: gotoBlockValue,
-        behavior: "auto",
+        behavior: "smooth",
       });
       e.preventDefault();
     }
